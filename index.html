@@ -119,7 +119,172 @@ var x = 21;
           }
           console.log(factorial(5));
       </pre>
+      <li> <h2>8. "Guess the Output</h2></li>
+
+       <pre> function FindSum(a, b){
+            return a + b;
+        }
+        
+        function DisplayData(data, batch){
+            console.log(`i am from ${data} and My batch is EA${batch}`)
+        }
+        
+        DisplayData(""PrepBytes"", FindSum(10, 9));" </pre>
+        <pre><h3>OUTPUT WILL BE I AM FROM PREPBYTES AND MY BATCH IS EA${19} HERE DISPLAYDATA IS A CALLBACK FUNCTION.</h3></pre>
+       <li> <pre><h2>Abc();
+            const Abc = function(){
+                let value = 20;
+                console.log(value);
+            }</h2></pre></li>
+        <pre><h3>OUTPUT WILL BE NOT DEFINED BEACUSE FUNCTION IS INSIDE THE VARIABLE AND VARIABLE DOES NOT FOLLOW HOISTING.</h3></pre>
+        <li><pre><h2>"Guess the output
+
+            var a = 10;
+            (function (){
+                console.log(a);
+                var a = 20;
+            })();"</h2></pre></li>
+            <pre><h3>OUTPUT IS UNDEFINED BEACUSE VALUE OF X IS UNDEFINED IN FUNCTION EXECTION CONTEXT IN PHASE ONE.
+            <li></h3></pre>
+       <pre><h2>"Guess the Output
+            const greet =  function(name){
+                return function(m){
+                
+                    console.log(`Hi!! ${name}, ${m}`);
+                }
+            }
+              
+            const greet_message = greet('EA19');
+            greet_message(""Welcome To PrepBytes"")"</h2></pre></li> 
+            <pre><h3>OUTPUT IS HI EA19 Welcome TO PREPBYTES.</h3></pre>
     </ol>
+  
+  <hr>
+    <br>
+
+    <h1 id="close">closures hands on js </h1>
+    <h2>Q1. function counter(){
+      var counter = 0;
+  
+      function IncreaseCounter() {
+          return counter += 1;
+      };
+  
+      return IncreaseCounter;
+  }
+  
+  var counter = counter();
+  alert(counter());
+  alert(counter());
+  alert(counter());
+  alert(counter());
+  </h2>
+  <pre>
+  output is 
+  1
+  2
+  3
+  4
+  (inside alert)
+  </pre>
+  <h2>Q2.let count = 0;
+      (function () {
+        if (count === 0) {
+          let count = 1;
+          console.log(count); // What is logged?
+        }
+        console.log(count); // What is logged?
+      })();
+      </h2>
+      <pre>
+          output is 
+          1
+          0
+
+      </pre>
+      <h2>Q3.for (var i = 0; i < 3; i++) {
+          setTimeout(function log() {
+            console.log(i); // What is logged?
+          }, 1000);
+        }</h2>
+        <pre>
+          output is 
+          3
+          3
+          3
+        </pre>
+        <h2>Q4.Write a code to calculate area of a rectangle using inner function. In this case outer function should accept parameter length and inner function should accept parameter breadth.
+      </h2>
+      <pre>
+          function length(L){
+              function height(H){
+                  console.log(L*H);
+              }
+              height(10);
+          }
+          length(10);
+      </pre>
+      <p>output is 100</p>
+      <h2>Q5.Take a variable in outer function and create an inner function to increase the counter every time it is called
+      </h2>
+      <pre>
+         var counter = (function(){
+         var i=0;
+         return{
+          counter:i+=1
+         };
+      })();
+      </pre>
+      <h2>Q6.Print Output
+
+          var a = 12;
+          (function () {
+            alert(a);
+          })();
+      </h2>
+      <pre>
+          output is 12
+      </pre>
+      <h2>Q7.var a = 10;
+          var x = (function () {
+            var a = 12;
+            return function () {
+              alert(a);
+            };
+          })();
+          x();
+          </h2>
+          <pre>
+              output is - 
+              12
+              12
+          </pre>
+          <h2>Q8.var globalVar = ""xyz"";
+
+              (function outerFunc(outerArg) {
+                  var outerVar = 'a';
+                  
+                  (function innerFunc(innerArg) {
+                  var innerVar = 'b';
+                  
+                  console.log(
+                      ""outerArg = "" + outerArg + ""\n"" +
+                      ""innerArg = "" + innerArg + ""\n"" +
+                      ""outerVar = "" + outerVar + ""\n"" +
+                      ""innerVar = "" + innerVar + ""\n"" +
+                      ""globalVar = "" + globalVar);
+                  
+                  })(456);
+              })(123);
+          </h2>
+          <pre>
+              output is - 
+              outerArg=123
+              innerArg=456
+              outerVar=a
+              innerVar=b
+              globalVar=xyz 
+          </pre>
 
     <script src="./java.js"></script>
   </body>
